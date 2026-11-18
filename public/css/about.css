@@ -1,0 +1,237 @@
+/* ===== About page (Member 2) ===== */
+.about-page {
+    --ink: #1f2529;
+    --slate: #39444a;
+    --mocha: #6a5a4b;
+    --caramel: #a47b55;
+    --cream: #e4c7a3;
+
+    --text-size: 1rem;      /* all paragraphs and labels */
+    --h2-size: 1.75rem;     /* section titles */
+    --h3-size: 1.2rem;      /* card titles */
+
+    box-sizing: border-box; /* keeps the padding inside the width (no sideways scroll) */
+    width: min(1100px, 100% - 2rem);
+    margin: 1.5rem auto;
+    padding: 3.5rem;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 28px;
+    font-family: inherit;   /* same font as the shared layout */
+    font-size: var(--text-size);
+    line-height: 1.7;
+}
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+    box-sizing: border-box;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3 {
+    margin: 0;
+    color: var(--cream);
+    line-height: 1.2;
+}
+
+.about-page p {
+    margin: 0 0 1rem;
+    max-width: 65ch;
+    opacity: 0.9;
+}
+
+/* ---- Hero ---- */
+.about-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1rem;
+    background: var(--caramel);
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-page h1 {
+    font-size: clamp(2.2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.about-hero__tagline {
+    font-style: italic;
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* ---- Sections ---- */
+.about-section {
+    margin-top: 3.5rem;
+}
+
+.about-page h2 {
+    font-size: var(--h2-size);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+/* ---- Read more / Read less ---- */
+.about-page [hidden] {
+    display: none;
+}
+
+.read-more-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: transparent;
+    color: var(--cream);
+    border: 2px solid var(--caramel);
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.read-more-btn:hover,
+.read-more-btn:focus-visible {
+    background: var(--caramel);
+    color: var(--ink);
+}
+
+/* ---- Cards (shared by stats, mission/vision, team) ---- */
+.about-cards,
+.about-stats {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.about-cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.about-cards--two {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.about-stats {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.about-page .card {
+    padding: 2rem;
+    background: var(--slate);
+    border: 1px solid rgba(228, 199, 163, 0.2);
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+
+.about-page .card:hover {
+    transform: translateY(-3px);
+}
+
+.card__icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.about-page .card h3 {
+    font-size: var(--h3-size);
+    margin-bottom: 0.5rem;
+}
+
+.about-page .card p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---- Stat cards ---- */
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.stat-card__value {
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--caramel);
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-card__label {
+    opacity: 0.9;
+}
+
+/* ---- Team cards (responsive layout) ---- */
+.about-cards--team {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.about-page .team-card {
+    padding: 1rem 0.75rem;
+    text-align: center;
+    min-width: 0;
+}
+
+.team-card p {
+    margin-inline: auto;
+}
+
+.team-card__avatar {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 0.5rem;
+    border-radius: 50%;
+    background: var(--caramel);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.about-page .team-card__role {
+    color: var(--caramel);
+    font-weight: 700;
+    opacity: 1;
+    margin-bottom: 0.5rem;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+    .about-page {
+        padding: 1.75rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .about-section {
+        margin-top: 2.5rem;
+    }
+
+    .about-page .card {
+        padding: 1.5rem;
+    }
+
+    .about-page .team-card {
+        padding: 1rem 0.75rem;
+    }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .about-page .card {
+        transition: none;
+    }
+
+    .about-page .card:hover {
+        transform: none;
+    }
+}
