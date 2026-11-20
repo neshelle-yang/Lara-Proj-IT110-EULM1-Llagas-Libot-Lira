@@ -1,6 +1,7 @@
 // Contact page: client-side form validation
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -49,6 +50,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
-        Object.keys(rules).forEach(validateField);
+        successMsg.hidden = true;
+
+        // Run every check (don't stop at the first failure)
+        const results = Object.keys(rules).map(validateField);
+        const allValid = results.every(Boolean);
+
+        if (allValid) {
+            successMsg.hidden = false;
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            form.reset();
+            Object.keys(rules).forEach(function (id) {
+                document.getElementById(id).classList.remove('valid', 'invalid');
+            });
+        } else {
+            const firstBad = form.querySelector('.invalid');
+            if (firstBad) firstBad.focus();
+        }
+    });
+    // Quick-pick subject chips: fill the subject field, then validate it
+    document.querySelectorAll('.subject-chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+            const subject = document.getElementById('subject');
+            subject.value = chip.dataset.subject;
+            validateField('subject');
+            subject.focus();
+        });
     });
 });
