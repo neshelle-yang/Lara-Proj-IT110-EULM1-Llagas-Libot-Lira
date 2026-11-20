@@ -12,11 +12,11 @@
 
     <!-- Navigation Bar -->
     <nav class="bg-[#1f2529] text-[#e4c7a3] shadow-md border-b border-[#39444a]">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
             <a href="/" class="text-xl font-bold tracking-wider flex items-center gap-2">
                 ☕ Rainy Window Roast
             </a>
-            <div class="space-x-6 text-sm font-medium">
+            <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
                 <a href="/" class="hover:text-white transition-colors">Home</a>
                 <a href="/about" class="hover:text-white transition-colors">About</a>
                 <a href="/contact" class="hover:text-white transition-colors">Contact</a>
