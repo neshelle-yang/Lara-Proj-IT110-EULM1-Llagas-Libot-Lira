@@ -1,0 +1,11 @@
+/* Contact page: card look shared with Home, plus validation states used by contact.js */
+.cafe-card {
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+.cafe-card:hover { transform: translateY(-2px); }
+
+/* Underline inputs change color when validated */
+.contact-form .invalid { border-color: #9b2c2c; }
+.contact-form .valid   { border-color: #1f5a3a; }
+.success[hidden]       { display: none; }
