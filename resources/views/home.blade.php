@@ -31,6 +31,7 @@
             </p>
             <p class="text-lg max-w-3xl leading-relaxed font-light opacity-90">
                 Welcome to Quiet Corner Cafe—your peaceful sanctuary designed specifically away from the campus chaos and city noise. Whether you are debugging code, reading quiet literature, or enjoying a slow brew, our space offers the tranquility and focus you need. Built with classic aesthetics and modern comforts, our cafe is the perfect blend of serenity and productivity. Come in, find your corner, and let the world fade away as you immerse yourself in your work or studies.
+            </p>
         </div>
 
         <!-- Featured Cafe Highlights / Study Fuel Preview -->

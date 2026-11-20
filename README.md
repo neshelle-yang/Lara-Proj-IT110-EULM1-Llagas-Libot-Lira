@@ -1,58 +1,84 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Quiet Corner Cafe
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel multi-page website for **Quiet Corner Cafe**, a peaceful cafe and study lounge.
 
-## About Laravel
+## Group information
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Group name:** Quiet Corner Cafe
+- **Section:** IT110-EULM1
+- **Members and assigned modules:**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Member | Module | Branch |
+| --- | --- | --- |
+| Neshelle Llagas | Project setup, shared layout, and Home page | `dev-member1-Llagas` |
+| Krisha Libot | About page | `dev-member2-Libot` |
+| Allyza Marie Lira | Contact page | `dev-member3-Lira` |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Pages
 
-## Learning Laravel
+- **Home (`/`)** — Cafe introduction, featured offerings, and a night/day theme toggle.
+- **About (`/about`)** — Cafe background, mission and vision, team cards, animated counters, and a Read More / Read Less toggle.
+- **Contact (`/contact`)** — Contact details and a form with client-side validation and a success message.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Screenshots
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Home
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+![Home page](docs/screenshots/home.png)
 
-## Agentic Development
+### About
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+![About page](docs/screenshots/about.png)
 
-```bash
-composer require laravel/boost --dev
+### Contact
 
-php artisan boost:install
+![Contact page](docs/screenshots/contact.png)
+
+## Requirements
+
+- PHP 8.3+
+- Composer
+- Node.js and npm (only needed if installing/building frontend dependencies)
+
+## Run locally
+
+From the project directory:
+
+```sh
+composer install
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Create the local environment file and application key:
 
-## Contributing
+```sh
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The default database connection is SQLite. Create the database file if it does not exist, then run migrations:
 
-## Code of Conduct
+```sh
+touch database/database.sqlite
+php artisan migrate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+On Windows PowerShell, use this equivalent command:
 
-## Security Vulnerabilities
+```powershell
+if (-not (Test-Path database\database.sqlite)) { New-Item database\database.sqlite -ItemType File }
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Start the development server:
 
-## License
+```sh
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Open the local URL printed by Artisan (usually `http://127.0.0.1:8000`).
+
+Run the test suite with:
+
+```sh
+php artisan test
+```
