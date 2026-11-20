@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-meadow: #0d3b16;
+  --color-wheat: #ead39d;
+  --color-olive: #737f35;
+  --color-olive-dark: #5c6828;
+  --color-space: #243f48;
+  --color-crimson: #52110f;
+
+  --color-paper: #f5ead0;
+  --color-card: #fbf5e4;
+  --color-line: #dcc98f;
+  --color-muted: #4d6168;
+
+  --font-display: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+@layer base {
+  body { @apply bg-paper font-body leading-relaxed text-space; }
+  h1, h2, h3 { @apply font-display font-normal leading-tight text-meadow; }
+}
+
+/* Small reusable layout helpers */
+@utility wrap {
+  width: min(1100px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+@utility card-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
